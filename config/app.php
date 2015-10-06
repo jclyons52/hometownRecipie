@@ -145,12 +145,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Collective\Html\HtmlServiceProvider::class,
-        Laracasts\Flash\FlashServiceProvider::class,
-        Mitul\Generator\GeneratorServiceProvider::class,
-        Bestmomo\Scafold\ScafoldServiceProvider::class,
-        'Laracasts\Generators\GeneratorsServiceProvider',
-        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        // Collective\Html\HtmlServiceProvider::class,
+        // Laracasts\Flash\FlashServiceProvider::class,
+        // Mitul\Generator\GeneratorServiceProvider::class,
+        // Bestmomo\Scafold\ScafoldServiceProvider::class,
+        // 'Laracasts\Generators\GeneratorsServiceProvider',
+        // SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
 
 
     ],
