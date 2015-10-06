@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.8"
+  },
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-ui-bootstrap": "^0.13.4",
+    "bootstrap": "^3.3.5",
+    "bootstrap-sass": "^3.0.0",
+    "jsqrcode": "0.0.6",
+    "laravel-elixir": "^3.0.0"
+  }
+}
