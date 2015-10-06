@@ -21,6 +21,7 @@
 <script>
     $('#reader').html5_qrcode(function(data){
          console.log(data);
+                window.location = data;
     },
     function(error){
         //show read errors 
