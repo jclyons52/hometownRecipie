@@ -149,7 +149,6 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Mitul\Generator\GeneratorServiceProvider::class,
         Bestmomo\Scafold\ScafoldServiceProvider::class,
-        'Laracasts\Generators\GeneratorsServiceProvider',
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
 
 
