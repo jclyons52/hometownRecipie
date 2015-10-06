@@ -5,6 +5,7 @@ use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Libraries\Repositories\ProductRepository;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
 
@@ -40,10 +41,6 @@ class ProductController extends AppBaseController
 	 */
 	public function create()
 	{
-		$user = Auth::user();
-		if (Gate::denies('create', $user)) {
-            abort(403);
-        }
 		return view('products.create');
 	}
 
@@ -57,8 +54,6 @@ class ProductController extends AppBaseController
 	public function store(CreateProductRequest $request)
 	{
 		$input = $request->all();
-
-		dd($input);
 
 		$product = $this->productRepository->create($input);
 
@@ -76,7 +71,6 @@ class ProductController extends AppBaseController
 	 */
 	public function show($id)
 	{
-		// dd('test');
 
 		$product = $this->productRepository->find($id);
 
