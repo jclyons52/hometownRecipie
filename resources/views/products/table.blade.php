@@ -1,27 +1,33 @@
 <table class="table">
-    <thead>
-    <th>Name</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Thumbnail Id</th>
-    <th width="50px">Action</th>
-    </thead>
     <tbody>
-    @foreach($products as $product)
+        @foreach($products as $product)
         <tr>
-            <td>{!! $product->name !!}</td>
-			<td>{!! $product->description !!}</td>
-			<td>{!! $product->price !!}</td>
             <td>
-                <a href="{!! route('products.show', [$product->id]) !!}"><i class="glyphicon glyphicon-eye-open"></i></a>
-                 @if(Auth::check())
-                    @if(Auth::user()->hasRole('admin'))
-                        <a href="{!! route('products.edit', [$product->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a href="{!! route('products.destroy', [$product->id]) !!}" onclick="return confirm('Are you sure wants to delete this Product?')"><i class="glyphicon glyphicon-remove"></i></a>
-                    @endif
-                @endif
-            </td>
-        </tr>
+
+                <div class="media">
+                  <div class="media-left">
+                    <a href="{!! route('products.show', [$product->id]) !!}">
+                        <img src="/fileentries/{{$product->thumbnail_id}}" height="80px" width="80px" class="media-object img-img-responsive">
+                    </a>
+                  </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">{!! $product->name !!}</h4>
+                        <p>{!! $product->description !!}</p>
+                        <p>{!! $product->price !!}</p>
+                    </div>
+                </div>
+        </td>
+
+        @if(Auth::check())
+        @if(Auth::user()->hasRole('admin'))
+        <td>
+            <a href="{!! route('products.edit', [$product->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
+            <a href="{!! route('products.destroy', [$product->id]) !!}" onclick="return confirm('Are you sure wants to delete this Product?')"><i class="glyphicon glyphicon-remove"></i></a>
+        </td>
+        @endif
+        @endif
+
+    </tr>
     @endforeach
-    </tbody>
+</tbody>
 </table>

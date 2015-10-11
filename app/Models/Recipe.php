@@ -28,7 +28,11 @@ class Recipe extends Model
     ];
 
 	public static $rules = [
-	    "name" => "required"
+	    // "name" => "required"
 	];
+
+	public function products(){
+		return $this->belongsToMany('App\Models\Product');
+	}
 
 }

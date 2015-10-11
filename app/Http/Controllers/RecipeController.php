@@ -113,6 +113,12 @@ class RecipeController extends AppBaseController
 	 */
 	public function update($id, UpdateRecipeRequest $request)
 	{
+
+		// dd($request);
+		$input = $request->all();
+        $file = $input['thumbnail'];
+        $file_id = $this->addThumbnail($file);
+        $input['thumbnail_id'] = $file_id;
 		$recipe = $this->recipeRepository->find($id);
 
 		if(empty($recipe))
@@ -122,7 +128,7 @@ class RecipeController extends AppBaseController
 			return redirect(route('recipes.index'));
 		}
 
-		$recipe = $this->recipeRepository->updateRich($request->all(), $id);
+		$recipe = $this->recipeRepository->updateRich($input, $id);
 
 		Flash::success('Recipe updated successfully.');
 
