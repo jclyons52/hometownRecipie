@@ -117,9 +117,12 @@ class ProductController extends AppBaseController
 	{
 		// dd($request);
 		$input = $request->all();
-        $file = $input['thumbnail'];
-        $file_id = $this->addThumbnail($file);
-        $input['thumbnail_id'] = $file_id;
+		if(array_key_exists('thumbnail', $input)){
+			$file = $input['thumbnail'];
+	        $file_id = $this->addThumbnail($file);
+	        $input['thumbnail_id'] = $file_id;
+		}
+       
 		$product = $this->productRepository->find($id);
 		
 

@@ -12,8 +12,10 @@
                   </div>
                     <div class="media-body">
                         <h4 class="media-heading">{!! $recipe->name !!}</h4>
-                        <p>{!! $recipe->description !!}</p>
-                        <p>{!! $recipe->method !!}</p>
+                        <h5>Description</h5>
+                        <p>{!! str_limit($recipe->description, 200) !!}</p>
+                        <h5>Method</h5>
+                        <p>{!! str_limit($recipe->method, 200) !!}</p>
                     </div>
                 </div>
         </td>
