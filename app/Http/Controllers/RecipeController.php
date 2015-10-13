@@ -130,7 +130,13 @@ class RecipeController extends AppBaseController
 			return redirect(route('recipes.index'));
 		}
 
-		$recipe = $this->recipeRepository->updateRich($input, $id);
+		$recipe->fill($input);
+		if(array_key_exists('products', $input)){
+			$recipe->products()->sync($input['products']);
+		}
+		
+		$recipe->save();
+
 
 		Flash::success('Recipe updated successfully.');
 

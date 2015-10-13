@@ -12,3 +12,10 @@
     {!! Form::close() !!}
 </div>
 @endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+    $('#recipe_products').select2();
+</script>
+@endsection
